@@ -461,11 +461,11 @@ class AuthController extends Controller
     Buka file `.env` dan masukkan data pooler IPv4 Supabase (diambil dari menu Settings -> Database di web Supabase Anda):
     ```env
     DB_CONNECTION=pgsql
-    DB_HOST=aws-1-ap-south-1.pooler.supabase.com
+    DB_HOST=your-supabase-pooler-host.supabase.com
     DB_PORT=5432
     DB_DATABASE=postgres
-    DB_USERNAME=postgres.wiwzommnqpbhbkdwprkd
-    DB_PASSWORD=b4n1burh4n!
+    DB_USERNAME=postgres.your-project-id
+    DB_PASSWORD=your-database-password
     ```
 6.  **Jalankan Migrasi Database**:
     Kirimkan struktur tabel database ke Supabase:
@@ -511,11 +511,11 @@ Proses publikasi (*deployment*) dilakukan menggunakan platform Railway dengan me
     *   `APP_ENV` = `production`
     *   `APP_DEBUG` = `false`
     *   `DB_CONNECTION` = `pgsql`
-    *   `DB_HOST` = `aws-1-ap-south-1.pooler.supabase.com`
+    *   `DB_HOST` = `your-supabase-pooler-host.supabase.com`
     *   `DB_PORT` = `5432`
     *   `DB_DATABASE` = `postgres`
-    *   `DB_USERNAME` = `postgres.wiwzommnqpbhbkdwprkd`
-    *   `DB_PASSWORD` = `b4n1burh4n!`
+    *   `DB_USERNAME` = `postgres.your-project-id`
+    *   `DB_PASSWORD` = `your-database-password`
 4.  **Mengatasi Error Keamanan Submisi Form (Mixed Content)**:
     Saat dideploy ke server HTTPS (seperti Railway), browser akan memblokir pengiriman form karena Laravel mendeteksi rute sebagai HTTP biasa. Untuk mengatasinya, pemaksaan HTTPS telah ditambahkan pada berkas `AppServiceProvider.php`:
     ```php

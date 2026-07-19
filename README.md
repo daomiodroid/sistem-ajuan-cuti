@@ -112,11 +112,11 @@ Tabel ini digunakan untuk mengelola data pengajuan cuti pegawai.
     Buka file `.env` lalu sesuaikan baris kredensial database menggunakan Connection Pooler Supabase:
     ```env
     DB_CONNECTION=pgsql
-    DB_HOST=aws-1-ap-south-1.pooler.supabase.com
+    DB_HOST=your-supabase-pooler-host.supabase.com
     DB_PORT=5432
     DB_DATABASE=postgres
-    DB_USERNAME=postgres.wiwzommnqpbhbkdwprkd
-    DB_PASSWORD=b4n1burh4n!
+    DB_USERNAME=postgres.your-project-id
+    DB_PASSWORD=your-database-password
     ```
 6.  **Jalankan Migrasi Database**
     ```bash
@@ -176,9 +176,9 @@ php artisan test
     *   `APP_ENV` = `production`
     *   `APP_DEBUG` = `false`
     *   `DB_CONNECTION` = `pgsql`
-    *   `DB_HOST` = `aws-1-ap-south-1.pooler.supabase.com`
+    *   `DB_HOST` = `your-supabase-pooler-host.supabase.com`
     *   `DB_PORT` = `5432`
     *   `DB_DATABASE` = `postgres`
-    *   `DB_USERNAME` = `postgres.wiwzommnqpbhbkdwprkd`
-    *   `DB_PASSWORD` = `b4n1burh4n!`
+    *   `DB_USERNAME` = `postgres.your-project-id`
+    *   `DB_PASSWORD` = `your-database-password`
 4.  Di tab **Settings** -> **Domains**, klik **Generate Domain** untuk mendapatkan Live URL.
