@@ -67,7 +67,6 @@ class AuthController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:100|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
-            'role' => ['required', Rule::in(['pegawai', 'admin'])],
         ], [
             'nip.required' => 'NIP wajib diisi.',
             'nip.unique' => 'NIP sudah terdaftar.',
@@ -78,8 +77,6 @@ class AuthController extends Controller
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal 6 karakter.',
             'password.confirmed' => 'Konfirmasi password tidak cocok.',
-            'role.required' => 'Peran (Role) wajib dipilih.',
-            'role.in' => 'Peran tidak valid.',
         ]);
 
         $user = User::create([
@@ -87,7 +84,7 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'role' => $validated['role'],
+            'role' => 'pegawai',
         ]);
 
         Auth::login($user);

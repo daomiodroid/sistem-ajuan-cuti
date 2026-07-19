@@ -8,7 +8,7 @@
                 <i class="fa-solid fa-user-plus text-xl"></i>
             </div>
             <h2 class="font-outfit font-extrabold text-2xl text-white">Daftar Akun</h2>
-            <p class="text-xs text-gray-400">Buat akun untuk pegawai atau admin simulasi</p>
+            <p class="text-xs text-gray-400">Buat akun pegawai baru untuk mengajukan cuti</p>
         </div>
 
         <form action="{{ route('register.post') }}" method="POST" class="space-y-4 text-sm">
@@ -46,21 +46,6 @@
                 <input type="email" name="email" id="email" required placeholder="nama@email.com" value="{{ old('email') }}"
                        class="w-full bg-slate-900 border border-slate-800 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 rounded-xl px-4 py-2.5 text-white transition-all outline-none">
                 @error('email')
-                    <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <!-- Peran (Role) -->
-            <div class="space-y-1.5">
-                <label for="role" class="text-gray-300 font-medium flex items-center gap-1.5">
-                    <i class="fa-solid fa-users-gear text-gray-500 text-xs"></i> Peran (Role)
-                </label>
-                <select name="role" id="role" required
-                        class="w-full bg-slate-900 border border-slate-800 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 rounded-xl px-4 py-2.5 text-white transition-all outline-none cursor-pointer">
-                    <option value="pegawai" {{ old('role') === 'pegawai' ? 'selected' : '' }}>Pegawai (Mengajukan Cuti)</option>
-                    <option value="admin" {{ old('role') === 'admin' ? 'selected' : '' }}>Admin (Persetujuan Cuti)</option>
-                </select>
-                @error('role')
                     <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
                 @enderror
             </div>

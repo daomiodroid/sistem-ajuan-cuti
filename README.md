@@ -19,7 +19,8 @@ Proyek ini dibangun untuk memenuhi kriteria Ujian Akhir Semester (UAS) mata kuli
 
 1.  **Sistem Registrasi & Login (Autentikasi)**
     *   Membatasi akses data. Pengguna wajib mendaftar dan login terlebih dahulu untuk mengakses menu utama.
-    *   Pembedaan peran (*role*) otomatis berbasis database: **Pegawai** dan **Admin**.
+    *   Pendaftaran akun baru otomatis disetel sebagai **Pegawai** (tidak ada pilihan Peran saat registrasi untuk alasan keamanan).
+    *   Akun **Admin** bersifat khusus/tunggal dan didaftarkan melalui seeder/database langsung.
 2.  **Pegawai Mode (Pengajuan Cuti - CRUD)**
     *   **Create (Pengajuan)**: Pegawai mengisi jenis cuti, tanggal mulai, tanggal selesai, dan alasan cuti. Nama lengkap dan NIP pengaju otomatis terisi dari sesi akun login untuk mencegah pemalsuan.
     *   **Read (Daftar Ajuan)**: Menampilkan tabel daftar riwayat ajuan pribadi pegawai yang bersangkutan.
@@ -48,7 +49,7 @@ Berikut adalah file-file utama yang digunakan untuk mengimplementasikan fungsion
     *   **Controller**: [AuthController.php](file:///c:/laragon/www/pengajuan-cuti/app/Http/Controllers/AuthController.php) — Mengurus alur registrasi user baru, login, dan penghapusan session logout.
     *   **Views**:
         *   [login.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/auth/login.blade.php) — Tampilan form masuk pengguna.
-        *   [register.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/auth/register.blade.php) — Tampilan form daftar akun dengan pemilihan peran (*role*).
+        *   [register.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/auth/register.blade.php) — Tampilan form daftar akun pegawai baru.
 3.  **Routing & Database**:
     *   **Rute Web**: [web.php](file:///c:/laragon/www/pengajuan-cuti/routes/web.php) — Mengatur pemetaan URL rute aplikasi dan pembatasan hak akses via middleware `auth`.
     *   **Migrasi Tabel Cuti**: [2026_07_19_105930_create_ajuan_cuti_table.php](file:///c:/laragon/www/pengajuan-cuti/database/migrations/2026_07_19_105930_create_ajuan_cuti_table.php) — Mengatur pembuatan tabel skema `ajuan_cuti` di database cloud.
