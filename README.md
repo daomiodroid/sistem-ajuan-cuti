@@ -36,6 +36,26 @@ Proyek ini dibangun untuk memenuhi kriteria Ujian Akhir Semester (UAS) mata kuli
 
 ---
 
+## Berkas Sumber Kode (CRUD & Autentikasi)
+
+Berikut adalah file-file utama yang digunakan untuk mengimplementasikan fungsionalitas CRUD dan sistem Autentikasi di aplikasi ini:
+
+1.  **Logika CRUD**:
+    *   **Controller**: [AjuanCutiController.php](file:///c:/laragon/www/pengajuan-cuti/app/Http/Controllers/AjuanCutiController.php) — Tempat semua logika pengolahan data (Create, Read, Update, Delete) dan validasi tanggal dilaksanakan.
+    *   **Model**: [AjuanCuti.php](file:///c:/laragon/www/pengajuan-cuti/app/Models/AjuanCuti.php) — Representasi objek Eloquent ORM untuk tabel database `ajuan_cuti`.
+    *   **View (Tampilan)**: [dashboard.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/dashboard.blade.php) — Dasbor utama yang memuat formulir input cuti (Create), tabel daftar riwayat cuti (Read), modul edit popup (Update), dan tombol pembatalan (Delete).
+2.  **Sistem Autentikasi (Login/Register)**:
+    *   **Controller**: [AuthController.php](file:///c:/laragon/www/pengajuan-cuti/app/Http/Controllers/AuthController.php) — Mengurus alur registrasi user baru, login, dan penghapusan session logout.
+    *   **Views**:
+        *   [login.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/auth/login.blade.php) — Tampilan form masuk pengguna.
+        *   [register.blade.php](file:///c:/laragon/www/pengajuan-cuti/resources/views/auth/register.blade.php) — Tampilan form daftar akun dengan pemilihan peran (*role*).
+3.  **Routing & Database**:
+    *   **Rute Web**: [web.php](file:///c:/laragon/www/pengajuan-cuti/routes/web.php) — Mengatur pemetaan URL rute aplikasi dan pembatasan hak akses via middleware `auth`.
+    *   **Migrasi Tabel Cuti**: [2026_07_19_105930_create_ajuan_cuti_table.php](file:///c:/laragon/www/pengajuan-cuti/database/migrations/2026_07_19_105930_create_ajuan_cuti_table.php) — Mengatur pembuatan tabel skema `ajuan_cuti` di database cloud.
+    *   **Migrasi Kolom User**: [2026_07_19_112222_add_role_and_nip_to_users_table.php](file:///c:/laragon/www/pengajuan-cuti/database/migrations/2026_07_19_112222_add_role_and_nip_to_users_table.php) — Menambahkan kolom NIP dan peran (*role*) pegawai/admin ke tabel pengguna.
+
+---
+
 ## Skema Database
 
 ### 1. Tabel: `users`
